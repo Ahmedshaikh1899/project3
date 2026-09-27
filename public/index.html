@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Order Portal</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Customer Order Portal</h1>
+      <p>Order management dashboard</p>
+    </div>
+    <button id="open-order-btn" class="primary">+ Create Order</button>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <div class="card">
+        <span>Total Orders</span>
+        <strong id="total-orders">0</strong>
+      </div>
+      <div class="card">
+        <span>Confirmed</span>
+        <strong id="confirmed-orders">0</strong>
+      </div>
+      <div class="card">
+        <span>Shipped</span>
+        <strong id="shipped-orders">0</strong>
+      </div>
+      <div class="card">
+        <span>New</span>
+        <strong id="new-orders">0</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <h2>Orders</h2>
+          <p>Live data from the Node.js API and PostgreSQL.</p>
+        </div>
+        <button id="refresh-btn" class="secondary">Refresh</button>
+      </div>
+
+      <div id="message" class="message hidden"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Status</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody id="orders-body">
+            <tr>
+              <td colspan="6" class="empty">Loading orders...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="order-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create Order</h2>
+        <button id="close-modal-btn" class="close">&times;</button>
+      </div>
+
+      <form id="order-form">
+        <label>
+          Customer Name
+          <input id="customer_name" name="customer_name" required maxlength="100">
+        </label>
+
+        <label>
+          Product Name
+          <input id="product_name" name="product_name" required maxlength="150">
+        </label>
+
+        <label>
+          Quantity
+          <input id="quantity" name="quantity" type="number" min="1" required>
+        </label>
+
+        <div id="form-error" class="form-error hidden"></div>
+
+        <button type="submit" class="primary full">Create Order</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
