@@ -1,7 +1,7 @@
 {
   "name": "customer-order-portal",
-  "version": "1.0.0",
-  "description": "Customer Order Portal REST API for DevOps CI/CD practice",
+  "version": "1.1.0",
+  "description": "Customer Order Portal REST API with Prometheus metrics",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "express": "^5.1.0",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "prom-client": "^15.1.3"
   }
 }
